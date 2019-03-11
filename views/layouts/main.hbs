@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<style>
+    .pagination a {
+        color: black;
+        float: left;
+        padding: 8px 16px;
+        text-decoration: none;
+    }
+</style>
+
+<body>
+    {{{body}}}
+
+</body>
+<script>
+    function manage() {
+
+        var x = document.getElementById('m1').value;
+
+        if (x === 'sachin') {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var arr = [];
+                    var doc = JSON.parse(xhttp.responseText);
+                    arr.push('<select id="s1" onchange="staff1()"><option>' + doc[0].username + '</option><option>' + doc[1].username + '</option></select>')
+                    document.getElementById("demo").innerHTML = arr;
+                }
+            };
+            xhttp.open("GET", "/staff/20", true);
+            xhttp.send();
+        }
+        else if (x === 'pavan') {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var arr = [];
+                    var doc = JSON.parse(xhttp.responseText);
+                    arr.push('<select id="s2" onchange="staff2()"><option>' + doc[0].username + '</option><option>' + doc[1].username + '</option></select>')
+                    document.getElementById("demo").innerHTML = arr;
+                }
+            };
+            xhttp.open("GET", "/staff/30", true);
+            xhttp.send();
+        }
+
+    }
+
+    function staff1() {
+        var table1 = [];
+        var y = document.getElementById('s1').value;
+        if (y === 'john') {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+
+                    let tab = JSON.parse(xhttp.responseText);
+                    table1.push('<table>' + '<tr>' + '<th>Id</th>' +
+                        '<th>BranchId</th>' + '<th>CustomerId</th>' +
+                        '<th>firstname</th>' + '<th>lastname</th>' + '<th>supervisorId</th>' + '</tr>');
+
+                    for (var i = 0; i < tab.length; i++) {
+                        table1.push('<tr>' + '<td>' + tab[i]._id + '</td>' +
+                            '<td>' + tab[i].branchId + '</td>' +
+                            '<td>' + tab[i].customerId + '</td>' +
+                            '<td>' + tab[i].firstname + '</td>' +
+                            '<td>' + tab[i].lastname + '</td>' +
+                            '<td>' + tab[i].supervisorId + '</td>');
+                    }
+                    document.getElementById("demo1").innerHTML = table1 + '<br>' + '<div>' + '<a href=>' + 1 + '</a>' + '&nbsp' + '<a href=>' + 2 + '</a>' + '</div>';
+                }
+            };
+            xhttp.open("GET", "/customer/40/1/5", true);
+            xhttp.send();
+        }
+        else if (y === 'mike') {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    let tab = JSON.parse(xhttp.responseText);
+                    table1.push('<table>' + '<tr>' + '<th>Id</th>' +
+                        '<th>BranchId</th>' + '<th>CustomerId</th>' +
+                        '<th>firstname</th>' + '<th>lastname</th>' + '<th>supervisorId</th>' + '</tr>');
+
+                    for (var i = 0; i < tab.length; i++) {
+                        table1.push('<tr>' + '<td>' + tab[i]._id + '</td>' +
+                            '<td>' + tab[i].branchId + '</td>' +
+                            '<td>' + tab[i].customerId + '</td>' +
+                            '<td>' + tab[i].firstname + '</td>' +
+                            '<td>' + tab[i].lastname + '</td>' +
+                            '<td>' + tab[i].supervisorId + '</td>');
+                    }
+                    document.getElementById("demo1").innerHTML = table1;
+                }
+            };
+            xhttp.open("GET", "/customer/50/1/5", true);
+            xhttp.send();
+        }
+    }
+    function staff2() {
+        var table2 = [];
+        var z = document.getElementById('s2').value;
+        if (z === 'dom') {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    let tab = JSON.parse(xhttp.responseText);
+                    table2.push('<table>' + '<tr>' + '<th>Id</th>' +
+                        '<th>BranchId</th>' + '<th>CustomerId</th>' +
+                        '<th>firstname</th>' + '<th>lastname</th>' + '<th>supervisorId</th>' + '</tr>');
+
+                    for (var i = 0; i < tab.length; i++) {
+                        table2.push('<tr>' + '<td>' + tab[i]._id + '</td>' +
+                            '<td>' + tab[i].branchId + '</td>' +
+                            '<td>' + tab[i].customerId + '</td>' +
+                            '<td>' + tab[i].firstname + '</td>' +
+                            '<td>' + tab[i].lastname + '</td>' +
+                            '<td>' + tab[i].supervisorId + '</td>');
+                    }
+                    document.getElementById("demo1").innerHTML = table2;
+                }
+            };
+            xhttp.open("GET", "/customer/60/1/5", true);
+            xhttp.send();
+        }
+        else if (z === 'letty') {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    let tab = JSON.parse(xhttp.responseText);
+                    table2.push('<table>' + '<tr>' + '<th>Id</th>' +
+                        '<th>BranchId</th>' + '<th>CustomerId</th>' +
+                        '<th>firstname</th>' + '<th>lastname</th>' + '<th>supervisorId</th>' + '</tr>');
+
+                    for (var i = 0; i < tab.length; i++) {
+                        table2.push('<tr>' + '<td>' + tab[i]._id + '</td>' +
+                            '<td>' + tab[i].branchId + '</td>' +
+                            '<td>' + tab[i].customerId + '</td>' +
+                            '<td>' + tab[i].firstname + '</td>' +
+                            '<td>' + tab[i].lastname + '</td>' +
+                            '<td>' + tab[i].supervisorId + '</td>');
+                    }
+                    document.getElementById("demo1").innerHTML = table2;
+                }
+            };
+            xhttp.open("GET", "/customer/70/2/5", true);
+            xhttp.send();
+        }
+    }
+</script>
+
+</html>
